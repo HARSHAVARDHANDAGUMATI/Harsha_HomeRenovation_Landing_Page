@@ -1,210 +1,146 @@
-# 🍽️ Ember Plate — Restaurant Landing Page
+# Ember Plate - Restaurant Landing Page
 
-<div align="center">
+A modern, responsive, and interactive restaurant landing page built with React and Vite. The project is designed to showcase a premium dining brand through polished UI, smooth animations, menu browsing, cart interactions, and a clean booking experience.
 
-![Ember Plate Banner](https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80)
+## Overview
 
-<br/>
+Ember Plate is a frontend-focused single-page application created for portfolio and GitHub presentation. It combines a refined visual theme with practical restaurant features such as menu filtering, fuzzy search, cart total calculation, customer reviews, promotional offers, and a reservation form UI.
 
-[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![Framer Motion](https://img.shields.io/badge/Framer_Motion-12-0055FF?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
-[![Zustand](https://img.shields.io/badge/Zustand-5-FF6B35?style=for-the-badge)](https://zustand-demo.pmnd.rs/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+## Key Features
 
-**A premium, fully responsive restaurant landing page with an interactive menu, cart system, and table booking — built with React + Vite.**
+- Premium landing page design with a clean white theme, soft gradients, glassmorphism, and elegant typography
+- Fully responsive layout for desktop, tablet, and mobile screens
+- Sticky navigation with smooth anchor scrolling
+- Hero, About, Menu, Offers, Reviews, Booking, Contact, and Footer sections
+- Interactive menu with category filters and fuzzy search using `Fuse.js`
+- Cart drawer with add, remove, increment, decrement, and total price calculation
+- Reservation form UI with validation using `react-hook-form`
+- Smooth section and card animations using `framer-motion`
+- Toast feedback for user actions with `react-hot-toast`
+- Reusable component-based architecture for easier maintenance
 
-[✨ Live Demo](#) · [🐛 Report Bug](https://github.com/issues) · [💡 Request Feature](https://github.com/issues)
+## Tech Stack
 
-</div>
+- `React 19`
+- `Vite 8`
+- `Framer Motion`
+- `Zustand`
+- `Fuse.js`
+- `React Hook Form`
+- `React Icons`
+- `React Hot Toast`
+- `ESLint`
+- Custom CSS
 
----
+## Project Structure
 
-## 📋 Table of Contents
-
-- [About the Project](#-about-the-project)
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Getting Started](#-getting-started)
-- [Available Scripts](#-available-scripts)
-- [Screenshots](#-screenshots)
-- [Contributing](#-contributing)
-- [License](#-license)
-
----
-
-## 🌟 About the Project
-
-**Ember Plate** is a modern, high-fidelity restaurant landing page designed for a premium dining experience. It features smooth animations, a fully functional cart system, real-time fuzzy search, and a complete table booking flow — all built as a single-page application without any backend.
-
-This project was crafted to demonstrate best practices in React component architecture, state management, and responsive UI design.
-
----
-
-## ✨ Features
-
-| Feature | Description |
-|---|---|
-| 🧭 **Sticky Navbar** | Glassmorphic navbar that stays fixed while scrolling with backdrop blur |
-| 🍛 **Interactive Menu** | Browse all dishes with category filters and real-time fuzzy search |
-| 🛒 **Cart System** | Add/remove items, adjust quantities, view totals in a slide-out drawer |
-| 📅 **Table Booking** | Full booking form with validation via React Hook Form |
-| 🎞️ **Smooth Animations** | Page-wide motion effects powered by Framer Motion |
-| 📱 **Fully Responsive** | Optimized for mobile, tablet, and desktop viewports |
-| 🌇 **Premium UI** | Glassmorphism, custom color palette, Playfair Display typography |
-| 🔔 **Toast Notifications** | Instant feedback on cart actions via React Hot Toast |
-
----
-
-## 🛠️ Tech Stack
-
-### Core
-- **[React 19](https://react.dev/)** — UI component library
-- **[Vite 8](https://vitejs.dev/)** — Lightning-fast build tool and dev server
-- **[React Router DOM v7](https://reactrouter.com/)** — Client-side routing
-
-### State & Data
-- **[Zustand v5](https://zustand-demo.pmnd.rs/)** — Lightweight global state management for the cart
-- **[Fuse.js](https://www.fusejs.io/)** — Fuzzy search for the menu
-- **[React Hook Form](https://react-hook-form.com/)** — Performant form validation
-
-### UI & Animation
-- **[Framer Motion](https://www.framer.com/motion/)** — Declarative animations and transitions
-- **[React Icons](https://react-icons.github.io/react-icons/)** — Icon library (Feather Icons)
-- **[React Hot Toast](https://react-hot-toast.com/)** — Toast notification system
-- **Vanilla CSS** — Custom design system with CSS variables, no utility framework
-
-### Dev Tools
-- **[ESLint](https://eslint.org/)** — Code linting
-- **[PostCSS](https://postcss.org/)** + **[Autoprefixer](https://autoprefixer.github.io/)** — CSS processing
-
----
-
-## 📁 Project Structure
-
-```
+```text
 restaurant-landing-page/
-├── public/                    # Static assets
-├── src/
-│   ├── assets/                # Images and media
-│   ├── components/            # Reusable UI components
-│   │   ├── About/             # About section
-│   │   ├── BookingForm/       # Table reservation form
-│   │   ├── Cart/              # Cart drawer & cart item
-│   │   ├── Contact/           # Contact section
-│   │   ├── Footer/            # Footer
-│   │   ├── Hero/              # Hero / landing section
-│   │   ├── Menu/              # Menu grid, cards, filters
-│   │   ├── Navbar/            # Sticky navigation bar
-│   │   ├── Offers/            # Offers / promotions
-│   │   └── Reviews/           # Customer reviews
-│   ├── data/
-│   │   └── menuData.js        # All menu items, categories, static data
-│   ├── hooks/
-│   │   └── useCart.js         # Cart hook (Zustand store wrapper)
-│   ├── store/                 # Zustand store definitions
-│   ├── utils/
-│   │   └── formatCurrency.js  # Currency formatting helper
-│   ├── App.css                # Global design system & component styles
-│   ├── App.jsx                # Root application component
-│   ├── index.css              # Base resets
-│   └── main.jsx               # React entry point
-├── index.html
-├── vite.config.js
-├── package.json
-└── README.md
+|-- public/
+|-- src/
+|   |-- components/
+|   |   |-- About/
+|   |   |-- BookingForm/
+|   |   |-- Cart/
+|   |   |-- Contact/
+|   |   |-- Footer/
+|   |   |-- Hero/
+|   |   |-- Menu/
+|   |   |-- Navbar/
+|   |   |-- Offers/
+|   |   `-- Reviews/
+|   |-- data/
+|   |   `-- menuData.js
+|   |-- hooks/
+|   |   `-- useCart.js
+|   |-- pages/
+|   |   |-- Home.jsx
+|   |   |-- MenuPage.jsx
+|   |   `-- NotFound.jsx
+|   |-- store/
+|   |   `-- useCartStore.js
+|   |-- utils/
+|   |   |-- filterMenu.js
+|   |   `-- formatCurrency.js
+|   |-- App.css
+|   |-- App.jsx
+|   |-- index.css
+|   `-- main.jsx
+|-- index.html
+|-- package.json
+`-- README.md
 ```
 
----
-
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-Make sure you have **Node.js v18+** and **npm** installed:
-
-```bash
-node -v   # Should be v18 or higher
-npm -v
-```
+- Node.js 18 or above
+- npm
 
 ### Installation
-
-1. **Clone the repository:**
 
 ```bash
 git clone https://github.com/your-username/restaurant-landing-page.git
 cd restaurant-landing-page
-```
-
-2. **Install dependencies:**
-
-```bash
 npm install
 ```
 
-3. **Start the development server:**
+### Run Locally
 
 ```bash
 npm run dev
 ```
 
-4. **Open in browser:**
+Open `http://localhost:5173` in your browser.
 
-```
-http://localhost:5173
-```
+## Available Scripts
 
----
+- `npm run dev` - starts the development server
+- `npm run build` - creates the production build
+- `npm run preview` - previews the production build locally
+- `npm run lint` - runs ESLint checks
 
-## 📜 Available Scripts
+## UI Sections
 
-| Command | Description |
-|---|---|
-| `npm run dev` | Start the Vite development server with HMR |
-| `npm run build` | Build the project for production |
-| `npm run preview` | Preview the production build locally |
-| `npm run lint` | Run ESLint to check for code issues |
+- Hero section with strong first impression and call-to-action buttons
+- About section for brand storytelling
+- Menu section with filtering and search
+- Offers section for promotions
+- Reviews section for social proof
+- Booking section with table reservation UI
+- Contact section with restaurant details
+- Cart drawer for order summary and pricing
 
----
+## Highlights For Recruiters And Reviewers
 
-## 📸 Screenshots
+- Clear separation of concerns between data, store, hooks, utilities, and UI components
+- Responsive and scalable component structure
+- Practical frontend features beyond static design
+- Clean code intended for GitHub review and portfolio use
 
-| Section | Preview |
-|---|---|
-| **Hero** | Full-screen landing with floating info cards |
-| **Menu** | 3-column grid with category filters & fuzzy search |
-| **Cart** | Slide-out drawer with quantity controls |
-| **Booking** | Validated table reservation form |
-| **Reviews** | Customer testimonials |
+## Deployment
 
-> 📌 *Add your own screenshots by replacing the table above with `![Screenshot](./screenshot.png)` after uploading images to the repo.*
+You can deploy this project easily on:
 
----
+- Vercel
+- Netlify
 
-## 🤝 Contributing
+After deployment, replace the placeholders below:
 
-Contributions, issues, and feature requests are welcome!
+- GitHub repository: `https://github.com/your-username/restaurant-landing-page`
+- Live demo: `https://your-deployment-link.vercel.app`
 
-1. Fork the project
-2. Create your feature branch: `git checkout -b feature/your-feature-name`
-3. Commit your changes: `git commit -m 'feat: add some feature'`
-4. Push to the branch: `git push origin feature/your-feature-name`
-5. Open a Pull Request
+## Future Improvements
 
----
+- Backend integration for table reservations
+- Real checkout flow and payment integration
+- Admin dashboard for menu management
+- Dark/light theme toggle
+- API-driven menu content
 
-## 📄 License
+## Author
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+Built by Harsha.
 
----
-
-<div align="center">
-
-Made with ❤️ by **Harsha**
-
-⭐ If you found this project helpful, please consider giving it a **star** on GitHub!
-
-</div>
+If you use this project in your portfolio, make sure to update the repository and live demo links with your final URLs.
