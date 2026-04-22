@@ -24,6 +24,26 @@
   --container: min(1180px, calc(100% - 32px));
 }
 
+/* ── Dark Mode Theme ────────────────────────────────────────── */
+[data-theme="dark"] {
+  --bg: #141412;
+  --bg-soft: #1c1b18;
+  --panel: rgba(28, 27, 24, 0.92);
+  --panel-strong: #1c1b18;
+  --surface: #f0ede8;
+  --surface-soft: #b5b0a8;
+  --text: #f0ede8;
+  --text-muted: #9a958e;
+  --text-dark: #f0ede8;
+  --line: rgba(255, 255, 255, 0.07);
+  --line-strong: rgba(255, 255, 255, 0.11);
+  --accent: #d6b16f;
+  --accent-strong: #c49a50;
+  --accent-soft: rgba(214, 177, 111, 0.12);
+  --shadow-lg: 0 30px 80px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 18px 45px rgba(0, 0, 0, 0.4);
+}
+
 *,
 *::before,
 *::after {
@@ -44,6 +64,14 @@ body {
   color: var(--text);
   min-width: 320px;
   overflow-x: hidden;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+[data-theme="dark"] body {
+  background:
+    radial-gradient(circle at top left, rgba(214, 177, 111, 0.07), transparent 30%),
+    radial-gradient(circle at 85% 10%, rgba(255,255,255,0.03), transparent 22%),
+    linear-gradient(180deg, #141412 0%, #161614 50%, #131311 100%);
 }
 
 a {
@@ -181,6 +209,12 @@ button {
   border-bottom: 1px solid var(--line);
   box-shadow: 0 2px 20px rgba(40, 41, 46, 0.06);
   will-change: transform;
+  transition: background 0.35s ease, border-color 0.35s ease;
+}
+
+[data-theme="dark"] .navbar {
+  background: rgba(20, 20, 18, 0.88);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
 .navbar__inner {
@@ -261,15 +295,40 @@ button {
 }
 
 .cart-trigger:hover,
-.menu-toggle:hover {
-  background: #ffffff;
+.menu-toggle:hover,
+.theme-toggle:hover {
+  background: var(--bg-soft);
   transform: translateY(-1px);
+}
+
+[data-theme="dark"] .cart-trigger,
+[data-theme="dark"] .menu-toggle,
+[data-theme="dark"] .theme-toggle {
+  background: rgba(36, 35, 32, 0.82);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .menu-toggle {
   display: none;
   padding: 0;
   width: 48px;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  min-height: 48px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--text);
+  font-size: 1.1rem;
+  overflow: hidden;
+  transition: background 0.25s ease, transform 0.2s ease, border-color 0.35s ease;
 }
 
 .mobile-nav {
@@ -741,8 +800,31 @@ button {
 }
 
 .footer__inner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
   padding-top: 24px;
   border-top: 1px solid var(--line);
+}
+
+.footer__inner > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer__inner > div strong {
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.footer__inner > div p,
+.footer__inner > p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
 }
 
 .cart-backdrop {
@@ -995,3 +1077,133 @@ button {
     flex-direction: column;
   }
 }
+
+/* ── Dark Mode Component Overrides ───────────────────────────── */
+
+/* Cards and panels */
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .info-card,
+[data-theme="dark"] .offer-card,
+[data-theme="dark"] .review-card,
+[data-theme="dark"] .contact-card,
+[data-theme="dark"] .contact-panel,
+[data-theme="dark"] .booking-form,
+[data-theme="dark"] .section-card,
+[data-theme="dark"] .empty-state {
+  background: linear-gradient(180deg, rgba(30, 29, 26, 0.95), rgba(24, 23, 20, 0.88));
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+/* Menu cards */
+[data-theme="dark"] .menu-card {
+  background: rgba(26, 25, 22, 0.92);
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+[data-theme="dark"] .menu-card:hover {
+  border-color: rgba(214, 177, 111, 0.25);
+}
+
+[data-theme="dark"] .menu-card__media span {
+  background: rgba(20, 20, 18, 0.88);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+}
+
+/* Menu toolbar & search */
+[data-theme="dark"] .menu-toolbar {
+  background: rgba(22, 21, 18, 0.7);
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+[data-theme="dark"] .menu-search {
+  background: rgba(30, 29, 26, 0.9);
+  border-color: rgba(255, 255, 255, 0.09);
+}
+
+[data-theme="dark"] .menu-categories button {
+  background: rgba(30, 29, 26, 0.7);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .menu-categories button:hover,
+[data-theme="dark"] .menu-categories button.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #1b1814;
+}
+
+/* Button ghost in dark mode */
+[data-theme="dark"] .button--ghost {
+  background: rgba(36, 35, 32, 0.85);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--text);
+}
+
+[data-theme="dark"] .button--ghost:hover {
+  background: rgba(44, 43, 40, 0.95);
+}
+
+/* Navbar brand mark */
+[data-theme="dark"] .brand__mark {
+  background: linear-gradient(135deg, rgba(214, 177, 111, 0.2), rgba(40, 39, 36, 0.9));
+}
+
+/* Hero floating cards */
+[data-theme="dark"] .hero-visual__floating {
+  background: rgba(24, 23, 20, 0.94);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Mobile nav */
+[data-theme="dark"] .mobile-nav {
+  background: rgba(20, 20, 18, 0.98);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Cart drawer */
+[data-theme="dark"] .cart-drawer {
+  background: rgba(18, 18, 16, 0.98);
+  border-left-color: rgba(255, 255, 255, 0.07);
+}
+
+[data-theme="dark"] .cart-drawer__header button,
+[data-theme="dark"] .cart-item__remove,
+[data-theme="dark"] .quantity-control button {
+  background: rgba(30, 29, 26, 0.9);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+}
+
+[data-theme="dark"] .cart-item {
+  background: rgba(28, 27, 24, 0.88);
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+/* Cart backdrop */
+[data-theme="dark"] .cart-backdrop {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* Booking form inputs */
+[data-theme="dark"] .booking-form input,
+[data-theme="dark"] .booking-form select,
+[data-theme="dark"] .booking-form textarea {
+  background: rgba(30, 29, 26, 0.88);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+}
+
+[data-theme="dark"] .booking-form input:focus,
+[data-theme="dark"] .booking-form select:focus,
+[data-theme="dark"] .booking-form textarea:focus {
+  border-color: rgba(214, 177, 111, 0.45);
+  background: rgba(36, 35, 32, 0.96);
+}
+
+/* Contact card inner divs */
+[data-theme="dark"] .contact-card > div {
+  background: rgba(30, 29, 26, 0.8);
+}
+

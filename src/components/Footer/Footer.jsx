@@ -6,7 +6,7 @@ function Footer() {
           <strong>Ember Plate</strong>
           <p>Modern restaurant landing page crafted with responsive React components.</p>
         </div>
-        <p>Designed for portfolio-ready frontend presentation.</p>
+        <p>© {new Date().getFullYear()} Ember Plate. All rights reserved. Crafting unforgettable dining experiences.</p>
       </div>
     </footer>
   )
